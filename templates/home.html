@@ -1,0 +1,16 @@
+{% extends "default.html" %}
+{% block content %}
+<section class="hero is-primary is-bold is-large">
+	<div class="hero-body">
+		<div class="columns is-mobile">
+  			<div class="column is-half is-offset-one-quarter">
+				<center>
+				<a class="button is-large is-inverted is-info" href="{{url_for('.instructions')}}">
+  					Ir a instrucciones
+				</a>
+				</center>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

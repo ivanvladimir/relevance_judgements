@@ -1,0 +1,35 @@
+{% extends "default.html" %}
+{% block content %}
+<section class="hero is-primary is-bold is-medium">
+	<div class="hero-body">
+		<div class="container">
+		<div class="content">
+
+<h1>Instrucciones</h1>
+
+<p>
+Observa los siguientes pares de palabras e imagina que alguien las pronuncia
+en un ambiente con mucho ruido. ¿Crees que podrías llegar a confundir una 
+palabra con otra en un ambiente así?. Responde si o no según tu critero.
+</p>
+
+<p>
+Después se te pide que imagines que estás escribiendo un poema o una 
+canción. ¿Consideras que las dos palabras riman?. Responde si o no según tu criterio.
+</p>
+
+<br/>
+<br/>
+		</div>
+		</div>
+		<div class="column is-half is-offset-one-quarter">
+			<center>
+			<a class="button is-large is-inverted is-info" href="{{url_for('.eval')}}">
+				Iniciar evaluacón
+			</a>
+			</center>
+		</div>
+	
+	</div>
+</section>
+{% endblock %}
