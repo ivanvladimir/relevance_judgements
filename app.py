@@ -9,6 +9,15 @@ app = Flask(__name__)
 def login():
   return render_template('home.html')
 
+@app.route('/eval')
+def eval():
+  return render_template('home.html')
+
+@app.route('/instructions')
+def instructions():
+  return render_template('instructions.html')
+
+
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser("Twitter ML")
