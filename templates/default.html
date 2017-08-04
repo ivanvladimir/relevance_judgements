@@ -5,6 +5,9 @@
     <meta name="Test relevance judgments" content="Test">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	{% block css %}
+    {% endblock %}
+
   </head>
   <body>
     <section class="hero is-white">
@@ -16,38 +19,29 @@
             </h6>
           </a>
         </div>
-        <div class="nav-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <a href="/exit" class="button is-primary is-outlined">
-                <span>Terminar</span>
-              </a>
-            </p>
-			<p class="control">
-              <a href="/about" class="button is-primary is-outlined">
-                <span>Acerca</span>
-              </a>
-            </p>
-         </div>
-        </div>
-      </nav>
+     </nav>
     </section>
-    {% block content %}
+
+
+	{% block content %}
     {% endblock %}
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-			<p>Ivan Meza & Carlos Mena, Copyright 2017</p>
-      </p>
-    </div>
-  </div>
-</footer>
+	<footer class="footer">
+	  <div class="container">
+		<div class="content has-text-centered">
+		  <p>
+				<p>Ivan Meza & Carlos Mena, Copyright 2017</p>
+		  </p>
+		</div>
+	  </div>
+	</footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	{% block js %}
+    {% endblock %}
+
   </body>
 </html>
 

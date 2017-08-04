@@ -1,0 +1,113 @@
+{% extends "default.html" %}
+{% block content %}
+
+<section class="section">
+<script type="text/javascript">
+	var options= new Array(20).fill(false);
+
+	function isTrue(element, index, array) { 
+  		return element; 
+	}
+</script>
+
+    <div class="container">
+	<div class="content">
+      <h2 class="subtitle">
+        Para los siguientes pares de palabras selecciona la mejor opción
+      </h2>
+
+	
+	<table class="table is-striped is-fullwidth">
+    <thead>
+	<tr>
+	  <th>Palabras</th>
+	  <th></th>
+	  <th>¿Se confunden?</th>
+	  <th>¿Riman?</th>
+    </tr>
+
+	</thead>	
+	<tbody> 
+    {% for (w1,w2) in queries %} 
+	<tr>
+	  <th>
+		<strong>{{w1}}</strong>
+	  </th>
+	  <th>
+		<strong>{{w2}}<strong>
+	  </th>
+	  <th>
+		<center>
+	  	<div class="field">
+			  <div class="control">
+				<label class="radio">
+				  <input class='radio_option'type="radio" name="mix_{{loop.index}}" value={{loop.index}}>
+				  Sí
+				</label>
+				<label class="radio">
+				  <input class='radio_option' type="radio" name="mix_{{loop.index}}" value={{loop.index}}>
+				  No
+				</label>
+			  </div>
+		</div>
+		</center>
+	  </th>
+	  <th>
+		<center>
+	  	<div class="field">
+			  <div class="control">
+				<label class="radio">
+				  <input class="radio_option"type="radio" name="rhyme_{{loop.index}}" value={{10+loop.index}}>
+				  Sí
+				</label>
+				<label class="radio">
+				  <input class="radio_option" type="radio" name="rhyme_{{loop.index}}" value={{10+loop.index}}>
+				  No
+				</label>
+			  </div>
+		</div>
+		<center>
+	  </th>
+    {% endfor %}
+    </tbody>
+    </table>
+
+	<progress class="progress" value="{{page+1}}" max="10">{{(page+1)*10}}%</progress>
+
+	<div class="columns">
+	<div class="column is-11">
+	</div>
+	
+	<div class="column is-1">
+	{% if page<9 %}
+	<div class="control">
+    	<button id="next" class="button is-primary" disabled="disabled" >Siguiente</button>
+  	</div>
+	{% else %}
+	<div class="control">
+    	<button id="next" class="button is-primary" disabled="disabled" >Finalizar</button>
+  	</div>
+	{% endif %}
+	</div>
+	</div>
+
+
+	</div>
+	</div>
+</section>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript">
+    $(".radio_option").click(function() {
+		options[$(this).val()-1]=true;
+		if(options.every(isTrue)){
+    		$("#next").attr("disabled", false);
+		}else{
+			console.log('Not yet')
+		}
+    	});
+</script>
+{% endblock %}
+
